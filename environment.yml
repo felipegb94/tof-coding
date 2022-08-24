@@ -1,4 +1,4 @@
-name: basicdevenv38
+name: basicdev38
 channels:
   - conda-forge
   - http://conda.anaconda.org/gurobi
@@ -10,6 +10,7 @@ dependencies:
   - backcall=0.2.0=pyh9f0ad1d_0
   - backports=1.0=py_2
   - backports.functools_lru_cache=1.6.4=pyhd8ed1ab_0
+  - blas=1.1=openblas
   - bzip2=1.0.8=h7f98852_4
   - ca-certificates=2022.6.15=ha878542_0
   - cycler=0.11.0=pyhd8ed1ab_0
@@ -40,7 +41,9 @@ dependencies:
   - matplotlib-base=3.2.2=py38h5d868c9_1
   - matplotlib-inline=0.1.6=pyhd8ed1ab_0
   - ncurses=6.3=h27087fc_1
-  - numpy=1.23.2=py38h3a7f9d9_0
+  - numpy=1.21.5=py38hf838250_3
+  - numpy-base=1.21.5=py38h1e6e340_3
+  - openblas=0.3.21=pthreads_h320a7e8_2
   - openssl=3.0.5=h166bdaf_1
   - parso=0.8.3=pyhd8ed1ab_0
   - pexpect=4.8.0=pyh9f0ad1d_2
@@ -55,7 +58,7 @@ dependencies:
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python_abi=3.8=2_cp38
   - readline=8.1.2=h0f457ee_0
-  - scipy=1.9.0=py38hea3f02b_0
+  - scipy=1.7.3=py38h56a6a73_0
   - setuptools=65.2.0=py38h578d9bd_0
   - six=1.16.0=pyh6c4a22f_0
   - sqlite=3.39.2=h4ff8645_1
@@ -66,4 +69,4 @@ dependencies:
   - wcwidth=0.2.5=pyh9f0ad1d_2
   - wheel=0.37.1=pyhd8ed1ab_0
   - xz=5.2.6=h166bdaf_0
-prefix: /home/felipe/miniconda3/envs/basicdevenv38
+prefix: /home/felipe/miniconda3/envs/basicdev38
