@@ -9,8 +9,6 @@
 
 ## Library Imports
 import numpy as np
-# import scipy
-# from scipy import signal
 from IPython.core import debugger
 breakpoint = debugger.set_trace
 
@@ -25,7 +23,7 @@ def int2binstr(integer: int) -> str:
 	'''
 	return bin(integer).lstrip('-0b')
 
-def uint2gray(nonneg_int: int) -> int:
+def uint_to_gray(nonneg_int: int) -> int:
 	'''
 		convert a python integer into a gray code. Assumes that the input integer is positive
 		Arguments:
@@ -38,7 +36,7 @@ def uint2gray(nonneg_int: int) -> int:
 	gray_uint = nonneg_int ^ (nonneg_int >> 1)
 	return gray_uint
 
-def uint2graybin(nonneg_int: int, gray_code_len: int) -> np.array:
+def uint_to_gray_code(nonneg_int: int, gray_code_len: int) -> np.array:
 	'''
 		convert a python integer into a gray code and return the gray code as a numpy array of binary numbers.
 		Arguments:
@@ -48,7 +46,7 @@ def uint2graybin(nonneg_int: int, gray_code_len: int) -> np.array:
 	## Validate inputs
 	assert(nonneg_int < 2**gray_code_len), "can't represent {} with a {}-bit gray code".format(nonneg_int, gray_code_len)
 	## get gray code as an integer
-	gray_uint = uint2gray(nonneg_int)
+	gray_uint = uint_to_gray(nonneg_int)
 	# convert binary representation to a gray code of a pre-specified length
 	gray_bin_arr = np.zeros((gray_code_len,), dtype=int)
 	# just return zeros for 0
@@ -58,12 +56,11 @@ def uint2graybin(nonneg_int: int, gray_code_len: int) -> np.array:
 		gray_bin_arr[-len(gray_bin_str):] = [int(bin_char) for bin_char in gray_bin_str] 
 	return gray_bin_arr
 
-
-def uint2zeromeangraybin(nonneg_int: int, gray_code_len: int) -> np.array:
+def uint_to_zero_mean_gray_code(nonneg_int: int, gray_code_len: int) -> np.array:
 	'''
 		convert a python integer into a zero-mean gray code (i.e., 0's are replaced by -1)
 	'''
-	return make_zero_mean(uint2graybin(nonneg_int, gray_code_len))
+	return make_zero_mean(uint_to_gray_code(nonneg_int, gray_code_len))
 
 def generate_gray_coding_matrix(k_bits: int) -> np.array:
 	'''
@@ -77,7 +74,7 @@ def generate_gray_coding_matrix(k_bits: int) -> np.array:
 	codes = np.zeros((n_binary_codes, k_bits))
 	## generate a gray code for each possible code
 	for i in range(n_binary_codes):
-		codes[i, :] = uint2graybin(i, gray_code_len=k_bits)
+		codes[i, :] = uint_to_gray_code(i, gray_code_len=k_bits)
 	return codes
 
 def generate_zero_mean_gray_coding_matrix(k_bits: int) -> np.array:
@@ -90,7 +87,7 @@ if __name__=='__main__':
 	import matplotlib.pyplot as plt
 
 	## Generate a Gray Coding Matrix
-	k = 8 # number of bits based on the gray code
+	k = 4 # number of bits based on the gray code
 	gray_C = generate_gray_coding_matrix(k)
 	zero_mean_gray_C = generate_zero_mean_gray_coding_matrix(k)
 	
@@ -98,11 +95,11 @@ if __name__=='__main__':
 	test_nums = np.random.randint(0, 2**k, size=(5,)).astype(int)
 	for num in test_nums:
 		gray_code1 = gray_C[num, :].astype(int)
-		gray_code2 = uint2graybin(num, k)
+		gray_code2 = uint_to_gray_code(num, k)
 		print("Testing {}-bit gray code for = {}".format(k, num))
 		print("    gray_C[:, {}] = {}".format(num, gray_C[num, :]))
-		print("    uint2graybin({}) = {}".format(num, uint2graybin(num, k)))
-		print("    uint2zeromeangraybin({}) = {}".format(num, uint2zeromeangraybin(num, k)))
+		print("    uint_to_gray_code({}) = {}".format(num, uint_to_gray_code(num, k)))
+		print("    uint_to_zero_mean_gray_code({}) = {}".format(num, uint_to_zero_mean_gray_code(num, k)))
 
 	## Visualize coding matrix
 	from utils import get_pretty_C
