@@ -21,3 +21,8 @@ The script `tof_coding_spad_example.py` shows how we can use the functions in al
 
 We assume that timestamps are unsigned integers between 0 and some maximum number of time bins (usually computed as repetition period divided by time resolution).
 
+## Visualizing the coding matrices
+
+Simply run `python coding_gray.py` or `python coding_trunc_fourier.py`. This will display a visualization of each coding matrix with K codes (rows).
+
+
