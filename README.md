@@ -2,6 +2,8 @@
 
 This repository contains functions to generate coding matrices often used in time-of-flight imaging. 
 
+It also shows how we can use these coding matrices to encode timestamp values (without generating the coding matrix).
+
 Currently, this repository includes code to generate the following coding matrices
 
 1. **Fourier-based Coding:** Coding matrix based on the Fourier codes (i.e., rows from the DFT matrix)
