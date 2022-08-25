@@ -59,3 +59,4 @@ if __name__=='__main__':
 	plt.imshow(get_pretty_C(trunc_fourier_C), vmin=-1, vmax=1)
 	plt.title("Truncated Fourier Coding Matrix with {} frequencies and domain length = {}".format(n_fourier_freqs, n_bins), fontsize=12)
 	plt.colorbar()
+	plt.show()

@@ -112,3 +112,4 @@ if __name__=='__main__':
 	plt.imshow(get_pretty_C(zero_mean_gray_C), vmin=-1, vmax=1)
 	plt.title("Zero Mean {}-bit Gray Coding Matrix - {} possible binary codes (columns)".format(k, gray_C.shape[0]), fontsize=14)
 	plt.colorbar()
+	plt.show()
