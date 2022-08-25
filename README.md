@@ -12,3 +12,10 @@ Currently, this repository includes code to generate the following coding matric
 The code in this repository has been tested on `Python 3.8` and mainly depends: `numpy`, `scipy`, `matplotlib`, and `ipython` (for debugging). 
 
 You can setup a python virtual environment using `conda` and the `environment.yml` file in this repository by running: `conda env create -f environment.yml`
+
+## How to use?
+
+The script `tof_coding_spad_example.py` shows how we can use the functions in all `coding_*.py` to convert a timestamp into its corresponding coded values. 
+
+We assume that timestamps are unsigned integers between 0 and some maximum number of time bins (usually computed as repetition period divided by time resolution).
+

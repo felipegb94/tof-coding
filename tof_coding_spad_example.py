@@ -10,8 +10,8 @@ from IPython.core import debugger
 breakpoint = debugger.set_trace
 
 ## Local Imports
-from gray_coding import uint_to_zero_mean_gray_code, uint_to_gray_code
-from truncated_fourier_coding import uint_to_trunc_fourier_code
+from coding_gray import uint_to_zero_mean_gray_code, uint_to_gray_code
+from coding_trunc_fourier import uint_to_trunc_fourier_code
 
 if __name__=='__main__':
 	import matplotlib.pyplot as plt
