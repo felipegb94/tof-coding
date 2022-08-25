@@ -12,7 +12,7 @@ breakpoint = debugger.set_trace
 ## Local Imports
 from coding_gray import uint_to_zero_mean_gray_code, uint_to_gray_code, generate_gray_coding_matrix
 from coding_trunc_fourier import uint_to_trunc_fourier_code, generate_trunc_fourier_coding_matrix
-from depth_decoding import zncc, zncc_decoding
+from decoding import zncc, zncc_decoding
 
 if __name__=='__main__':
 	import matplotlib.pyplot as plt
