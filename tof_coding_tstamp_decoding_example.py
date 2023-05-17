@@ -12,7 +12,7 @@ breakpoint = debugger.set_trace
 ## Local Imports
 from coding_gray import uint_to_zero_mean_gray_code, uint_to_gray_code, generate_gray_coding_matrix
 from coding_trunc_fourier import uint_to_trunc_fourier_code, generate_trunc_fourier_coding_matrix
-from decoding import zncc, zncc_decoding
+from decoding import ncc, zncc, zncc_decoding
 
 if __name__=='__main__':
 	import matplotlib.pyplot as plt
@@ -46,4 +46,12 @@ if __name__=='__main__':
 	fourier_Cmat = generate_trunc_fourier_coding_matrix(n_tbins, n_freqs, include_zeroth_harmonic=False)
 	fourier_decoded_tstamp = zncc_decoding(encoded_tstamp, fourier_Cmat)
 	print("fourier Decoded Timestamp: {}".format(fourier_decoded_tstamp))
+
+	fourier_zncc_rec = zncc(encoded_tstamp, fourier_Cmat)
+	fourier_ncc_rec = ncc(encoded_tstamp, fourier_Cmat)
+
+	plt.clf()
+	plt.plot(fourier_zncc_rec, label='fourier ZNCC')
+	plt.plot(fourier_ncc_rec, label='fourier NCC')
+	plt.legend()
 

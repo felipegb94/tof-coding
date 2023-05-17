@@ -32,4 +32,3 @@ def tstamp2hist(tstamp, hist_len):
 	hist[tstamp] = 1
 	return hist
 
-

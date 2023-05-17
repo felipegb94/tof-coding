@@ -7,6 +7,8 @@ Currently, this repository includes code to generate the following coding matric
 1. **Fourier-based Coding:** Coding matrix based on the Fourier codes (i.e., rows from the DFT matrix)
 2. **Gray Coding:** Binary coding matrix based on gray codes
 
+It also includes scripts that generate the coding functions for Hamiltonian and Gray coding for indirect ToF (see `itof_coding_gray.py` and `itof_coding_hamiltonian.py`)
+
 ## Setup Python Env
 
 The code in this repository has been tested on `Python 3.8` and mainly depends: `numpy`, `scipy`, `matplotlib`, and `ipython` (for debugging). 
