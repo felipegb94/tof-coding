@@ -2,6 +2,8 @@
 
 This repository contains functions to generate coding matrices often used in time-of-flight imaging. 
 
+It also shows how we can use these coding matrices to encode timestamp values (without generating the coding matrix).
+
 Currently, this repository includes code to generate the following coding matrices
 
 1. **Fourier-based Coding:** Coding matrix based on the Fourier codes (i.e., rows from the DFT matrix)
@@ -20,4 +22,9 @@ You can setup a python virtual environment using `conda` and the `environment.ym
 The script `tof_coding_spad_example.py` shows how we can use the functions in all `coding_*.py` to convert a timestamp into its corresponding coded values. 
 
 We assume that timestamps are unsigned integers between 0 and some maximum number of time bins (usually computed as repetition period divided by time resolution).
+
+## Visualizing the coding matrices
+
+Simply run `python coding_gray.py` or `python coding_trunc_fourier.py`. This will display a visualization of each coding matrix with K codes (rows).
+
 
